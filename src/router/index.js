@@ -1,14 +1,32 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Login from '../pages/login.vue'
+import Course from '../pages/course.vue'
+import Index from '../pages/index.vue'
+import UserCenter from '../pages/userCenter.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
-    name: 'home',
-    component: Home
+    path: "/login",
+    name: "login",
+    component: Login
+  },
+  {
+    path: "/",
+    name: "index",
+    component: Index
+  },
+  {
+    path: "/userCenter",
+    name: "userCenter",
+    component: UserCenter
+  },
+  {
+    path: "/course/:id",
+    name: "course",
+    component: Course
   },
   {
     path: '/about',
@@ -22,7 +40,7 @@ const routes = [
 
 const router = new VueRouter({
   mode: 'history',
-  base: process.env.BASE_URL,
+  base: '/',
   routes
 })
 

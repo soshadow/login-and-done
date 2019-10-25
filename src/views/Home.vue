@@ -1,18 +1,30 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <p>count:{{count}}</p>
+    <div>
+      <button @click="increaseCount">count++</button>
+    </div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import HelloWorld from "@/components/HelloWorld.vue";
 
 export default {
-  name: 'home',
+  name: "home",
   components: {
     HelloWorld
+  },
+  computed: {
+    count() {
+      return this.$store.state.count;
+    }
+  },
+  methods: {
+    increaseCount() {
+      this.$store.commit("increaseCount",100);
+    }
   }
-}
+};
 </script>
